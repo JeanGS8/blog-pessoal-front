@@ -1,16 +1,23 @@
 import React from 'react';
 import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import './App.css';
 
-import { Title } from './componentes/Title/Title';
-import { Text } from './componentes/Text/Text';
+import Navbar from './componentes/estaticos/navbar/Navbar';
+import { Home } from './componentes/home/Home';
+import { About } from './componentes/about/About';
 
-function App() {
-  const nome = 'Jean';
+function App() { // 2B || !2B
   return (
     <>
-      <Title nome={nome}/>
-      <Text/>
+      <Router> // orquestrador = monta a pagia que o usuário vai ver
+        <Navbar/>
+        <Routes> // Lista de rotas da aplicação
+          <Route path="/" element={<Home/>} /> // Rota
+          <Route path="/home" element={<Home/>} />
+          <Route path="/about" element={<About/>} />
+        </Routes>
+      </Router>
     </>
   );
 }
