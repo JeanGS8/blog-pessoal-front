@@ -1,20 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
-import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom';
 import './App.css';
-
 import Navbar from './componentes/estaticos/navbar/Navbar';
-import { Home } from './componentes/home/Home';
-import { About } from './componentes/about/About';
+import { About } from './paginas/about/About';
+import { Home } from './paginas/home/Home';
+import { NotFound } from './paginas/notFound/NotFound';
+import { Produto } from './paginas/produto/Produto';
 
-function App() { // 2B || !2B
+function App() {
+  // <Route path='*' element={<NotFound />} />
+  // <Route path='*' element={<Navigate to='/' replace />} />
   return (
-    <Router> // orquestrador = monta a pagia que o usuário vai ver
-      <Navbar/>
-      <Routes> // Lista de rotas da aplicação
-        <Route path="/" element={<Home/>} /> // Rota
-        <Route path="/home" element={<Home/>} />
-        <Route path="/about" element={<About/>} />
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/home' element={<Home />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/produto' element={<Produto />} />
+        <Route path='/produto/:photoId' element={<Produto />} />
+        <Route path='*' element={<Navigate to='/' replace />} />
       </Routes>
     </Router>
   );

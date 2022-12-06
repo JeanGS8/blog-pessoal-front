@@ -3,15 +3,13 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { ThemeProvider } from '@material-ui/core';
-import { createTheme } from '@material-ui/core/styles';
-import purple from '@material-ui/core/colors/purple';
-import { green } from '@material-ui/core/colors';
+import { createTheme, ThemeProvider } from '@material-ui/core';
+import { red, green } from '@material-ui/core/colors';
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: purple[500],
+      main: red[500],
     },
     secondary: {
       main: green[500],
@@ -25,7 +23,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <App/>
+      <App />
     </ThemeProvider>
   </React.StrictMode>
 );
